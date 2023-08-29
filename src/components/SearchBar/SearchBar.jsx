@@ -37,8 +37,8 @@ const SearchBar = ({ toggleOpen, inputIsDisabled }) => {
     <div className="relative">
       <input
         type="text"
-        placeholder="Search"
-        className={`w-full h-11 border border-white rounded-full shadow-input text-iconsPurple outline-none pl-3 mb-2 dark:bg-neutral-900 dark:placeholder:text-orangeBg dark:shadow-inset_orange dark:text-white `}
+        placeholder="City. Example: Ciudad de México"
+        className={`w-full h-12 shadow-little_inset rounded-md border-2 border-neutral-700  shadow-input text-iconsPurple outline-purple_logo pl-3 mb-2 placeholder:font-300 trasnform transition-transform duration-300 focus:scale-y-110  dark:bg-neutral-900 dark:placeholder:text-orangeBg dark:shadow-inset_orange dark:text-white peer`}
         onChange={handlerSearch}
         /*  value={cityName} */
         disabled={false}
@@ -50,9 +50,12 @@ const SearchBar = ({ toggleOpen, inputIsDisabled }) => {
 
           /*  dispatch(getHotelsCoincidencesByCityId(idCity)); */
         }}
-        className="absolute top-1 flex items-center justify-center bg-zinc-200 w-9 h-9 rounded-full right-1 text-2xl text-iconsPurple dark:text-orangeBg"
+        className="absolute top-1.5 flex items-center justify-center  w-9 h-9 rounded-full right-1 text-2xl text-iconsPurple dark:text-orangeBg transform transition-transform duration-300 peer-focus:scale-110 "
       >
-        <BsSearch style={{ pointerEvents: "none" }} className=" text-xl" />
+        <BsSearch
+          style={{ pointerEvents: "none" }}
+          className=" text-xl text-rose drop-shadow-md"
+        />
       </button>
       <Select toggleOpen={toggleOpen} />
     </div>

@@ -27,9 +27,9 @@ const FiltersBar = () => {
     }, 150);
   };
   return (
-    <div className="relative  p-2  mt-3 rounded-md">
+    <div className="relative  rounded-md">
       <SearchBar toggleOpen={toggleOpen} inputIsDisabled={inputIsDisabled} />
-
+      {/* 
       <div>
         <div>
           <motion.div
@@ -38,7 +38,7 @@ const FiltersBar = () => {
             transition={{ duration: 0.4 }}
             className="overflow-hidden"
           >
-            {/* Contenido del elemento */}
+
             <div
               className={`relative  bg-white z-20 w-full  rounded-xl ${openFilters}`}
             >
@@ -56,7 +56,7 @@ const FiltersBar = () => {
         </div>
       </div>
 
-      <DateSelected toggleOpen={toggleOpen} />
+      <DateSelected toggleOpen={toggleOpen} /> */}
     </div>
   );
 };

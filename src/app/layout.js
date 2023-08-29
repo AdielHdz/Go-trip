@@ -1,13 +1,23 @@
 "use client";
-import { Head } from "next/document";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Josefin_Sans, Poppins } from "next/font/google";
 import Providers from "../redux/providers";
 import NavBarTop from "../components/NavBarTop/NavBarTop";
 import NavBarFooter from "../components/navBarFooter/NavBarFooter";
-import { Josefin_Sans } from "next/font/google";
 import { usePathname } from "next/navigation";
 /* import AuthProvider from "../features/AuthProvider"; */
+
+const josefin_sans = Josefin_Sans({
+  subsets: ["latin"],
+  variable: "--font-josefin",
+  weight: ["300", "500", "700"],
+});
+
+const nunito = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["300", "500", "700"],
+});
 
 export const metadata = {
   title: "Go-Trip",
@@ -24,14 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Providers>
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Nunito:wght@500;700;900&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
-
-        <body>
+        <body className=" font-josefin text-neutral-700">
           {renderNavBarTop && <NavBarTop />}
           {children}
           {renderNavBarFooter && <NavBarFooter />}

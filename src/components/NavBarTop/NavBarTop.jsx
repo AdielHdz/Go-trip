@@ -4,6 +4,7 @@ import Logo_GoTrip_Dark from "./images/Go-Trip-logo_Dark.svg";
 import Image from "next/image";
 import { useState } from "react";
 import UserOptions from "../UserOptions/UserOptions";
+import Menu from "./Menu";
 /* import { useLocalStorage } from '../../hooks/useLocalStorage'; */
 import { useRouter } from "next/navigation";
 const NavBarTop = () => {
@@ -27,39 +28,14 @@ const NavBarTop = () => {
     }
   };
 
-  const [windowIsOpen, setWindow] = useState("hidden");
-
-  const closeWindow = () => {
-    if (windowIsOpen === "") {
-      setWindow("hidden");
-    } else {
-      setWindow("");
-    }
-  };
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <nav className=" sticky z-30 left-0 shadow-input top-0 w-full h-16 shadow-lg flex justify-between items-center  px-3">
+    <nav className=" sticky z-30 left-0 shadow-little top-0 w-full h-16 bg-white  flex justify-between items-center  px-3">
       <Image
         src={!themeIsDark ? Logo_GoTrip : Logo_GoTrip_Dark}
         alt="Logo_GoTrip"
-        className="w-[125px]"
+        className=" w-little_logo"
       />
-
-      <button
-        onClick={toggleOpen}
-        className=" h-6 w-6 flex flex-col justify-evenly"
-      >
-        <div className="h-0 w-full border-b-2 border-b-solid border-b-iconsPurple"></div>
-        <div className="h-0 w-full border-b-2 border-b-solid border-b-iconsPurple"></div>
-        <div className="h-0 w-full border-b-2 border-b-solid border-b-iconsPurple"></div>
-      </button>
-
+      {/* <Menu /> */}
       {/*   <UserOptions
         window={windowIsOpen}
         toggleOpen={toggleOpen}

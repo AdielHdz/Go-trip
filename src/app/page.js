@@ -6,6 +6,7 @@ import { Bad_Script, Josefin_Sans, Roboto } from "next/font/google";
 import SliderMain from "../components/SlidersImages/SliderMain";
 import FiltersBar from "../components/Filters/FiltersBar";
 import ContainerResults from "../components/ContainerResults/ContainersResults";
+import PopularPlaces from "../components/Sliders/PopularPlaces";
 /* import { selectCityState } from "../redux/Features/Citys/CitySlice"; */
 import { useSelector, useDispatch } from "react-redux";
 /* import {
@@ -13,7 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
   selectHotelState,
 } from "../redux/Features/Hotel/hotelsSlice"; */
 /* import { useLocalStorage } from "../hooks/useLocalStorage"; */
-
+import { GiBackpack } from "react-icons/gi";
 const josefin = Josefin_Sans({
   weight: ["400"],
   subsets: ["latin"],
@@ -53,22 +54,26 @@ const Home = () => {
   }, []); */
 
   return (
-    <div className={`p-5 pb-2 bg-white dark:bg-neutral-900`}>
+    <div className={`p-3 pb-2 bg-white dark:bg-neutral-900`}>
       <header className="">
         <h4
-          className={` font-primary font-normal text-gray-500 dark:text-blueSky`}
+          className={` font-josefin  tracking-widest text-rose dark:text-blueSky`}
         >
-          {userNameSession !== "" ? userNameSession : "Hello, User"}
+          {userNameSession !== ""
+            ? `Hello, ${userNameSession}!`
+            : "Hello, User"}
         </h4>
-        <h3
-          className={`font-second font-semibold text-3xl text-red-600 dark:text-white`}
+        <h2
+          className={`mt-3 font-concert font-500 text-neutral-700 text-xl dark:text-white tracking-widest uppercase`}
         >
-          Where We Go?
-        </h3>
-
+          Where you Go?
+        </h2>
         <FiltersBar />
       </header>
 
+      <main>
+        <PopularPlaces />
+      </main>
       {/*  <main>
         <SliderMain roboto={roboto} />
       </main> */}
