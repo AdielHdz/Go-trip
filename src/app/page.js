@@ -1,19 +1,20 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Bad_Script, Josefin_Sans, Roboto } from "next/font/google";
 // import NavBarFooter from '@/components/navBarFooter/NavBarFooter';
 // import SearchBar from '../components/SearchBar/SearchBar';
 import SliderMain from "../components/SlidersImages/SliderMain";
 import FiltersBar from "../components/Filters/FiltersBar";
 import ContainerResults from "../components/ContainerResults/ContainersResults";
-import { selectCityState } from "../redux/Features/Citys/CitySlice";
+import PopularPlaces from "../components/Sliders/PopularPlaces";
+/* import { selectCityState } from "../redux/Features/Citys/CitySlice"; */
 import { useSelector, useDispatch } from "react-redux";
-import {
+/* import {
   fetchingHotel,
   selectHotelState,
-} from "../redux/Features/Hotel/hotelsSlice";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-
+} from "../redux/Features/Hotel/hotelsSlice"; */
+/* import { useLocalStorage } from "../hooks/useLocalStorage"; */
+import { GiBackpack } from "react-icons/gi";
 const josefin = Josefin_Sans({
   weight: ["400"],
   subsets: ["latin"],
@@ -31,15 +32,15 @@ export const roboto = Roboto({
 
 const Home = () => {
   const dispatch = useDispatch();
-  const cityResults = useSelector(selectCityState);
-  const hotelResults = useSelector(selectHotelState);
+  /*   const cityResults = useSelector(selectCityState);
+  const hotelResults = useSelector(selectHotelState); */
 
-  const [tokenSession, setTokenSession] = useLocalStorage("token", "");
-  const [userNameSession, setUserNameSession] = useLocalStorage("username", "");
+  const [tokenSession, setTokenSession] = useState("6664");
+  const [userNameSession, setUserNameSession] = useState("Adiel Hernandez");
 
-  const storedUserNameSession = localStorage.getItem("username");
+  /*  const storedUserNameSession = localStorage.getItem("username");  */
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (typeof window !== "undefined") {
       storedUserNameSession;
       setUserNameSession(
@@ -50,24 +51,32 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchingHotel(tokenSession));
-  }, []);
+  }, []); */
 
   return (
-    <div className={`p-5 pb-24 dark:bg-neutral-900`}>
-      <header className="pt-2 pb-2 ">
-        <h4 className={`${josefin.className}  text-gray-500 dark:text-blueSky`}>
-          {userNameSession !== "" ? userNameSession : "Hello, User"}
+    <div className={`p-3 pb-2 bg-white dark:bg-neutral-900`}>
+      <header className="">
+        <h4
+          className={` font-josefin  tracking-widest text-rose dark:text-blueSky`}
+        >
+          {userNameSession !== ""
+            ? `Hello, ${userNameSession}!`
+            : "Hello, User"}
         </h4>
-        <h3 className={`${roboto.className} text-3xl dark:text-white`}>
-          Where We Go?
-        </h3>
-
+        <h2
+          className={`mt-3 font-concert font-500 text-neutral-700 text-xl dark:text-white tracking-widest uppercase`}
+        >
+          Where you Go?
+        </h2>
         <FiltersBar />
       </header>
 
       <main>
-        <SliderMain roboto={roboto} />
+        <PopularPlaces />
       </main>
+      {/*  <main>
+        <SliderMain roboto={roboto} />
+      </main> */}
 
       <footer className=" bg-slate-600"></footer>
     </div>
